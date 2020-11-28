@@ -1,0 +1,266 @@
+* {
+  box-sizing: border-box;
+}
+a { color: #000000; }
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #1b7bf7;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #1b7bf7;
+  cursor: pointer;
+}
+.box{
+  width: 200px;
+}
+
+.btn:link,
+.btn:visited{
+  text-decoration: none;
+  text-transform:uppercase;
+  position:relative;
+  top:0;
+  left:0;
+  padding:20px 40px;
+  border-radius:100px;
+  display:inline-block;
+  transition: all .5s;
+}
+
+.btn-white{
+  background:#fff;
+  color:#000;
+  min-width: 200px;
+  min-height: 200px;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+}
+.btn-whiteLibre{
+  background:#fff;
+  color:#000;
+}
+
+.btn:hover{
+   box-shadow:0px 10px 10px rgba(0,0,0,0.2);
+   transform : translateY(-3px);
+}
+
+.btn:active{
+  box-shadow:0px 5px 10px rgba(0,0,0,0.2)
+  transform:translateY(-1px);
+}
+
+.btn-bottom-animation-1{
+  animation:comeFromBottom 1s ease-out .8s;
+}
+
+.btn::after{
+  content:"";
+  text-decoration: none;
+  text-transform:uppercase;
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  border-radius:100px;
+  display:inline-block;
+  z-index:-1;
+  transition: all .5s;
+}
+
+.btn-white::after {
+    background: #fff;
+}
+
+.btn-animation-1:hover::after {
+    opacity: 0;
+}
+
+@keyframes comeFromBottom{
+  0%{
+    opacity:0;
+    transform:translateY(40px);
+  } 
+  100%{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+.container {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-template-rows: repeat(2, 300px);
+  align-items: center;
+  justify-content: center;
+  margin: 20px
+}
+.imagenBotones {
+  width: 200px;
+  height: 200px;
+}
+
+
+/*Clases de responsive para celular*/
+
+/*Por defecto se abre desde el pc, luego se modifica a celular.*/
+
+.columnaTercios {
+  float: left;
+  width: 32%;
+  padding: 20px;
+}
+.columnaMedios {
+  float: left;
+  width: 48%;
+  padding: 20px;
+}
+.fila:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (min-width: 990px) {
+  #btns {
+    display: none;
+  }
+}
+@media screen and (max-width: 990px) and (orientation: portrait) {
+  .columnaTercios {
+    width: 100%;
+  }
+  .columnaMedios {
+    width: 100%;
+  }
+  #btns {
+    display: block;
+  }
+}
+@media screen and (max-width: 1338px) and (max-height: 2048px) {
+  .columnaTercios {
+    width: 100%;
+  }
+  .columnaMedios {
+    width: 100%;
+  }
+  #btns {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 990px) and (orientation: landscape) {
+  .columnaTercios {
+    width: 100%;
+  }
+  .columnaMedios {
+    width: 100%;
+  }
+  #btns {
+    display: block;
+  }
+}
+.floatButton1{
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:40px;
+  right:40px;
+  background-color:#ff851b;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  box-shadow: 2px 2px 3px #999;
+}
+.floatButton{
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:40px;
+  right:110px;
+  background-color:#ff851b;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  box-shadow: 2px 2px 3px #999;
+}
+.floatButtonBug{
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:120px;
+  right:40px;
+  background-color:#ff851b;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  box-shadow: 2px 2px 3px #999;
+}
+
+.my-float{
+  margin-top:22px;
+}
+
+.casillaCentrada {
+  text-align: center;
+}
+.casillaCentradaROJO {
+  background-color : #d18090;
+  text-align: left;
+}
+
+.iteracionModificada {
+  background-color : #72bce0;
+}
+
+#math-field{
+    margin: 0;
+    padding: .3em .6em;
+    border: 1px solid #aaa;
+    background-color: #fff;
+    border-radius: .2em;
+    transition: all 0.3s;
+    width: 100%
+}
+
+#math-field:focus{
+    border: 1px solid #0074d9;
+    outline: 0
+}
+#math-buttons{
+    margin: 0;
+    position: relative;
+    padding: .3em .6em;
+    border-radius: .2em;
+    top: 50%;
+    width: 18%;
+    transition: all 0.3s;
+}
+#math-buttons:focus{
+    border: 1px solid #0074d9;
+    outline: 0
+}
+
+.botonesMath{
+}

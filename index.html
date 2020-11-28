@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<style type="text/css">
+			::placeholder {
+				color: white
+			}
+			#division{
+			  text-align:center;
+			  box-sizing:border-box;
+			  font-family:"Lato",Sans-serif;
+			  resize:initial;
+			  overflow: hidden;
+			/*   position:relative; */
+
+			}
+
+			.box{
+
+			}
+			.boxE{
+				width: 50px;
+			}
+			.btn:link,
+			.btn:visited{
+			  text-decoration: none;
+			  text-transform:uppercase;
+			  position:relative;
+			  top:0;
+			  left:0;
+			  padding:20px 40px;
+			  border-radius:100px;
+			  display:inline-block;
+			  transition: all .5s;
+			}
+
+			.btn-white{
+			  background:#fff;
+			  color:#000;
+			}
+
+			.btn:hover{
+			   box-shadow:0px 10px 10px rgba(0,0,0,0.2);
+			   transform : translateY(-3px);
+			}
+
+			.btn:active{
+			  box-shadow:0px 5px 10px rgba(0,0,0,0.2)
+			  transform:translateY(-1px);
+			}
+
+			.btn-bottom-animation-1{
+			  animation:comeFromBottom 1s ease-out .8s;
+			}
+
+			.btn::after{
+			  content:"";
+			  text-decoration: none;
+			  text-transform:uppercase;
+			  position:absolute;
+			  width:100%;
+			  height:100%;
+			  top:0;
+			  left:0;
+			  border-radius:100px;
+			  display:inline-block;
+			  z-index:-1;
+			  transition: all .5s;
+			}
+
+			.btn-white::after {
+			    background: #fff;
+			}
+
+			.btn-animation-1:hover::after {
+			}
+
+			@keyframes comeFromBottom{
+			  0%{
+			    opacity:0;
+			    transform:translateY(40px);
+			  } 
+			  100%{
+			    opacity:1;
+			    transform:translateY(0);
+			  }
+			}
+			.container {
+			  display: grid;
+			  grid-gap: 5px;
+			  grid-template-columns: repeat(auto-fit, 100px);
+			  grid-template-rows: repeat(2, 100px);
+			  align-items: center;
+			  justify-content: center;
+			  resize:initial;
+			  overflow: hidden;
+			}
+			.activo {
+				background-color: gray
+			}
+			.switch {
+			  position: relative;
+			  display: inline-block;
+			  width: 60px;
+			  height: 34px;
+			}
+
+			.switch input { 
+			  opacity: 0;
+			  width: 0;
+			  height: 0;
+			}
+
+			.slider {
+			  position: absolute;
+			  cursor: pointer;
+			  top: 0;
+			  left: 0;
+			  right: 0;
+			  bottom: 0;
+			  background-color: #ccc;
+			  -webkit-transition: .4s;
+			  transition: .4s;
+			}
+
+			.slider:before {
+			  position: absolute;
+			  content: "";
+			  height: 26px;
+			  width: 26px;
+			  left: 4px;
+			  bottom: 4px;
+			  background-color: white;
+			  -webkit-transition: .4s;
+			  transition: .4s;
+			}
+
+			input:checked + .slider {
+			  background-color: #2196F3;
+			}
+
+			input:focus + .slider {
+			  box-shadow: 0 0 1px #2196F3;
+			}
+
+			input:checked + .slider:before {
+			  -webkit-transform: translateX(26px);
+			  -ms-transform: translateX(26px);
+			  transform: translateX(26px);
+			}
+
+			/* Rounded sliders */
+			.slider.round {
+			  border-radius: 34px;
+			}
+
+			.slider.round:before {
+			  border-radius: 50%;
+			}
+		</style>
+		<title>ASections - Test Interfaces</title>
+		<link rel="stylesheet" href="picnic.min.css">
+		<meta charset="UTF-8">
+		<link rel="apple-touch-icon" sizes="57x57" href="./favicon/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="./favicon/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="./favicon/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="./favicon/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="./favicon/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="./favicon/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="./favicon/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="./favicon/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="./favicon/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="./favicon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+		<meta name="msapplication-TileColor" content="#01B6C7">
+		<meta name="theme-color" content="#546E7A">
+	</head>
+	<body style="margin: 10px">
+
+			<article class="card">
+			<header>
+				<h1>ASections - Test Interfaces</h1>
+			</header>
+			<footer>
+				<div style="width: 48%;float: left;">
+					<canvas width="500" height="500" style="border: dashed; border-radius: 20px; float: left" id="canvas" onclick="click_canvas(event)" onmousemove="moviendo(event)" onmouseout="mouseFuera()"></canvas>
+				</div>
+				<div style="width: 48%;float: right;">
+					<div id="myPlot"></div>
+				</div>
+			</footer>
+		<script type="text/javascript" src="ASections_API.js"></script>
+		<script type="text/javascript" src="lines_intesect.js"></script>
+		<script type="text/javascript" src="main.js"></script>
+	</body>
+</html>
